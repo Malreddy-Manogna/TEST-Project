@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Vault App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Java Vault App</h1>
+        <div id="authStatus" class="status">Not Authenticated</div>
+        <div id="mainMenu">
+            <button onclick="showSection('enroll')">Enroll</button>
+            <button onclick="showSection('auth')">Authenticate</button>
+            <button id="encryptBtn" onclick="showSection('encrypt')" style="display: none;">Encrypt</button>
+            <button id="decryptBtn" onclick="showSection('decrypt')" style="display: none;">Decrypt</button>
+            <button onclick="logout()">Logout</button>
+            <button onclick="exitApp()">Exit</button>
+        </div>
+        <div class="section" id="enrollSection" style="display: none;">
+            <h2>Enroll Face</h2>
+            <input type="file" id="enrollFile" accept="image/*">
+            <button onclick="enroll()">Enroll</button>
+            <button onclick="backToMenu()">Back</button>
+            <div id="enrollResult"></div>
+        </div>
+        <div class="section" id="authenticateSection" style="display: none;">
+            <h2>Authenticate</h2>
+            <input type="file" id="authFile" accept="image/*">
+            <button onclick="authenticate()">Authenticate</button>
+            <button onclick="backToMenu()">Back</button>
+            <div id="authResult"></div>
+        </div>
+        <div class="section" id="encryptSection" style="display: none;">
+            <h2>Encrypt File</h2>
+            <label>Source File:</label>
+            <input type="file" id="encryptSrc">
+            <label>Destination Folder:</label>
+            <input type="file" webkitdirectory id="encryptDest">
+            <button onclick="encrypt()">Encrypt</button>
+            <button onclick="backToMenu()">Back</button>
+            <div id="encryptResult"></div>
+        </div>
+        <div class="section" id="decryptSection" style="display: none;">
+            <h2>Decrypt File</h2>
+            <label>Source File:</label>
+            <input type="file" id="decryptSrc">
+            <label>Destination Folder:</label>
+            <input type="file" webkitdirectory id="decryptDestFolder">
+            <label>Filename:</label>
+            <input type="text" id="decryptFilename" placeholder="e.g., aadhar.jpg">
+            <button onclick="decrypt()">Decrypt</button>
+            <button onclick="backToMenu()">Back</button>
+            <div id="decryptResult"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
